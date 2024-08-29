@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   durationBox: {
     width: 20,
     height: 20,
-    backgroundColor: "#0a7386",
+    backgroundColor: "#e26a00",
     borderRadius: 5,
   },
   durationWrap: {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     color: "#344955",
   },
   button: {
-    backgroundColor: "#0a7386",
+    backgroundColor: "#ffa726",
     padding: 15,
     borderRadius: 8,
     marginVertical: 10,

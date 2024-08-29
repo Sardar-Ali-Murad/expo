@@ -1,80 +1,124 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native";
+import { LineChart } from "react-native-chart-kit";
+
+const screenWidth = Dimensions.get("window").width;
+
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>No of Orders</Text>
       <View style={styles.line} />
-      <View style={styles.buttonWrap}>
-        <Text style={styles.buttonText}>No. Of Orders</Text>
+
+      <View style={styles.chartContainer}>
+        <Text style={styles.buttonText}>Product</Text>
+        <LineChart
+          data={{
+            labels: ["Product-1", "Product-2", "Product-3", "Product-4"],
+            datasets: [
+              {
+                data: [20, 45, 28, 80, 99, 43],
+              },
+            ],
+          }}
+          width={screenWidth - 40}
+          height={220}
+          yAxisLabel="$"
+          yAxisSuffix="k"
+          chartConfig={{
+            backgroundColor: "#e26a00",
+            backgroundGradientFrom: "#fb8c00",
+            backgroundGradientTo: "#ffa726",
+            decimalPlaces: 2,
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 16,
+            },
+            propsForDots: {
+              r: "6",
+              strokeWidth: "2",
+              stroke: "#ffa726",
+            },
+          }}
+          style={styles.chart}
+        />
       </View>
-    </View>
+
+      <View style={styles.chartContainer}>
+        <Text style={styles.buttonText}>Location</Text>
+        <LineChart
+          data={{
+            labels: ["Location-1", "Location-2", "Location-3", "Location-4"],
+            datasets: [
+              {
+                data: [20, 45, 28, 80, 99, 43],
+              },
+            ],
+          }}
+          width={screenWidth - 40} // Adjusted width to fit within the container
+          height={220}
+          yAxisLabel="$"
+          yAxisSuffix="k"
+          chartConfig={{
+            backgroundColor: "#e26a00",
+            backgroundGradientFrom: "#fb8c00",
+            backgroundGradientTo: "#ffa726",
+            decimalPlaces: 2,
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 16,
+            },
+            propsForDots: {
+              r: "6",
+              strokeWidth: "2",
+              stroke: "#ffa726",
+            },
+          }}
+          style={styles.chart}
+        />
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#f0f4f7",
-  },
-  boxWrap: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 30,
-    alignItems: "center",
-  },
-  durationBox: {
-    width: 30,
-    height: 30,
-    backgroundColor: "#0a7386",
-    borderRadius: 5,
-  },
-  TextDurationBox: {
-    width: 100,
-    height: 30,
-    backgroundColor: "#0a7386",
-    borderRadius: 5,
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-  },
-  buttonWrap: {
-    width: 200,
+    padding: 10,
+    paddingTop: 26,
+    paddingHorizontal: 12,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 5,
     color: "#344955",
-  },
-  durationBoxText: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  buttonText: {
-    fontSize: 18,
-    color: "#fff",
     textAlign: "center",
-    backgroundColor: "#0a7386",
-    padding: 6,
-    marginVertical: 10,
-  },
-  buttonTextHidden: {
-    fontSize: 18,
-    color: "#fff",
-    textAlign: "center",
-    padding: 8,
-    borderRadius: 8,
-    marginVertical: 10,
-    marginRight: 40,
   },
   line: {
     height: 1,
     backgroundColor: "#000",
     width: "100%",
-    marginBottom: 5,
+    marginBottom: 10,
+  },
+  chartContainer: {
+    marginBottom: 20,
+
+    paddingHorizontal: 10,
+  },
+  chart: {
+    borderRadius: 16,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: "#fff",
+    textAlign: "center",
+    backgroundColor: "#e26a00",
+    padding: 6,
+    borderRadius: 8,
+    marginBottom: 10,
   },
 });

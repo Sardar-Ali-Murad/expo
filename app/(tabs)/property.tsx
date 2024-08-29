@@ -99,13 +99,13 @@ const styles = StyleSheet.create({
   durationBox: {
     width: 30,
     height: 30,
-    backgroundColor: "#0a7386",
+    backgroundColor: "#ffa726",
     borderRadius: 5,
   },
   TextDurationBox: {
     width: 100,
     height: 30,
-    backgroundColor: "#0a7386",
+    backgroundColor: "#e26a00",
     borderRadius: 5,
     display: "flex",
     justifyContent: "center",
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "#fff",
     textAlign: "center",
-    backgroundColor: "#0a7386",
+    backgroundColor: "#e26a00",
     padding: 6,
     borderRadius: 8,
     marginVertical: 10,
@@ -147,6 +147,6 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "#000",
     width: "100%",
-    marginBottom: 5,
+    marginBottom: 10,
   },
 });
